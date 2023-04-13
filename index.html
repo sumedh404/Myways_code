@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FizzBuzz Function</title>
+  </head>
+  <body>
+    <h1>FizzBuzz Function</h1>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone"><br><br>
+      <button type="button" onclick="runFizzBuzz()">Run</button>
+    </form>
+    <br>
+    <label for="output">Output:</label>
+    <p id="output"></p>
+    
+    <script>
+      function runFizzBuzz() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        
+        let lsp = fizzBuzz(phone);
+        let output = "Hi " + name + ", FizzBuzz sequence: " + lsp.join(" ");
+        
+        document.getElementById("output").innerHTML = output;
+      }
+      function fizzBuzz(phoneNumber) {
+        let lsp = []
+        let sum = phoneNumber.split('').reduce((acc, curr) => Number(acc) + Number(curr));
+        
+        for (let i = 1; i <= sum; i++) {
+          if (i % 4 === 0 && i % 5 === 0) {
+            lsp.push("FizzBuzz");
+          } else if (i % 4 === 0) {
+            lsp.push("Fizz");
+          } else if (i % 5 === 0) {
+            lsp.push("Buzz");
+          } else {
+            lsp.push(i);
+          }
+        }
+        
+        return lsp;
+      }
+    </script>
+  </body>
+</html>
