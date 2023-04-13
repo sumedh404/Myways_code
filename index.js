@@ -1,28 +1,27 @@
-function fizzBuzz(phoneNumber, currentNumber = 1){
-    const phoneNumberSum = phoneNumber.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
-if(currentNumber > phoneNumberSum){
-    return;
-}
 
-let output ='';
 
-if(currentNumber % 4 === 0){
-    output += 'Fizz';
-}
-if(currentNumber % 5 === 0){
-    output += 'Buzz';
-}
-
-if(output === ''){
-    output = currentNumber;
-}
-
-console.log(output);
-
-fizzBuzz(phoneNumber, currentNumber + 1);
+function fizzBuzz(phoneNumber) {
+    let lsp=[]
+    let sum = phoneNumber.split('').reduce((acc, curr) => Number(acc) + Number(curr));
     
+    for (let i = 1; i <= sum; i++) {
+    if (i % 4 === 0 && i % 5 === 0) {
     
-}
+    lsp.push("FizzBuzz")
 
-const phoneNumber = 9000000099;
-fizzBuzz(phoneNumber);
+    // console.log("FizzBuzz");
+    } else if (i % 4 === 0) {
+    // console.log("Fizz");
+    lsp.push("Fizz")
+    } else if (i % 5 === 0) {
+    lsp.push("Buzz")
+    // console.log("Buzz");
+    } else {
+    // console.log(lsp);
+    lsp.push(i)
+    }
+    }
+    return lsp
+    }
+    lsp=fizzBuzz('9000000009')
+    console.log(lsp.toString());
